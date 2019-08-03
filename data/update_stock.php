@@ -6,8 +6,7 @@
  Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
  $count = 0;
 
- #$file = fopen(MAGENTO . '/var/import/updateStockLevels.csv', 'r');
- $file = fopen('updateStock.csv', 'r');
+ $file = fopen('/tmp/data/updateStock.csv', 'r');
  while (($line = fgetcsv($file)) !== FALSE) {
 
  if ($count == 0) {
