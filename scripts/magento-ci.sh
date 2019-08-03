@@ -48,9 +48,10 @@ rsync -va --stats -e "ssh $sshOpts -i ~/.ssh/aws_id_rsa" ${baseDir}/data ubuntu@
 
 # Obtenemos el nombre de todos los scripts php y los ejecutamos
 # en la maquina remota
-for i in $(ls -1 ${baseDir}/data/*.php | xargs basename)
+for i in $(ls -1 ${baseDir}/data/*.php)
 do
-   ssh $sshOpts -i ~/.ssh/aws_id_rsa ubuntu@${magentoIp} "sudo php /tmp/data/${i}"
+   f=$(basename $i)
+   ssh $sshOpts -i ~/.ssh/aws_id_rsa ubuntu@${magentoIp} "sudo php /tmp/data/${f}"
 
    [ $? -ne 0 ] && exit 1
 done
