@@ -5,7 +5,7 @@ $storeId='1';
 
 Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
 
-$productIds = array('1');
+$productIds = array('2');
 
 $products = Mage::getModel('catalog/product')->getCollection();
 $products->addStoreFilter();
